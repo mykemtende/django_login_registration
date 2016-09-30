@@ -1,0 +1,37 @@
+{% extends "mtende/base.html" %}
+
+{% block title %}Login to mtende Website{% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+    <h1>Login to mtende website</h1>
+
+    <div class="container">
+        <form class="form-signin span4" id="login_form" method="post" action="/mtende/login/">
+            <h2 class="form-signin-heading">Please login</h2>
+            {% if bad_details %}
+            <p><strong>Your username or password were incorrect!</strong></p>
+            {% elif disabled_account %}
+            <p><strong>Your mtende website account is currently inactive; can't log you in!</strong></p>
+            {% endif %}
+
+
+            {% csrf_token %}
+            Username: <input type="text" class="input-block-level" placeholder="Username" name="username" value=""
+                             size="50"/>
+            <br/>
+            Password: <input type="password" class="input-block-level" placeholder="Password" name="password" value=""
+                             size="50"/>
+            <br/>
+
+            <button class="btn btn-primary" type="submit">Login</button>
+        </form>
+
+
+    </div>
+    <!-- /container -->
+
+</div>
+
+
+{% endblock %}

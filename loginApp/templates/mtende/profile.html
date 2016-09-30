@@ -1,0 +1,19 @@
+{% extends "mtende/base.html" %}
+
+{% block title %}Profile{% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+   	   <h1>Successfully Logged in Welcome!!<h1> <br/>
+	   <h2>{{ user.username }}</h2>
+       <p>Email: {{ user.email }}</p>
+       
+       {% if userprofile %}
+	   <p>National Id Number:{{userprofile.idno}}</p>
+           <br/>
+       {% if userprofile.photo %}
+	   <img src="{{ userprofile.photo.url }}"  />
+	   {% endif %}
+	   {% endif %}
+</div>
+{% endblock %}
